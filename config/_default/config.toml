@@ -10,10 +10,10 @@ hasCJKLanguage = true
 enableRobotsTXT = true
 summaryLength = 200
 
-[pagination]
-  pagerSize = 10
-
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+
+[pagination]
+  pagerSize = 10
 
 theme = "congo"
