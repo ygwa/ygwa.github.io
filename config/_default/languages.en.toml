@@ -7,19 +7,16 @@ title = "蒋大培的博客"
 
 [params]
   dateFormat = "2 January 2006"
-
-  # mainSections = ["section1", "section2"]
-  description = "My awesome website"
+  description = "全栈开发、咨询顾问 - 分享全栈开发实践和技术咨询经验"
+  
+  # Site keywords for SEO
+  keywords = ["全栈开发", "咨询顾问", "技术咨询", "前端开发", "后端开发", "蒋大培"]
 
 [params.author]
   name = "蒋大培"
   image = "img/author.jpg"
-  headline = "aijishu"
-  bio = "A little bit about you"
+  headline = "全栈开发 | 咨询顾问"
+  bio = "全栈开发者，专注于前后端开发和系统设计，同时提供技术咨询服务"
   links = [
-    { email = "mailto:hello@your_domain.com" },
-    { github = "https://github.com/username" },
-    { twitch = "https://twitch.tv/username" },
-    { x-twitter = "https://twitter.com/username" },
-    { youtube = "https://youtube.com/username" },
+    { github = "https://github.com/ygwa" },
   ]
