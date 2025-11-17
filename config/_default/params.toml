@@ -51,18 +51,22 @@ fingerprintAlgorithm = "sha256"
   showTaxonomies = true
   showWordCount = true
   showComments = false
-  # sharingLinks = ["facebook", "x-twitter", "mastodon", "pinterest", "reddit", "linkedin", "email", "threads", "telegram", "line", "weibo"]
+  # Enable social sharing links
+  sharingLinks = ["x-twitter", "linkedin", "reddit", "email"]
 
 [list]
   showBreadcrumbs = true
-  showSummary = false
+  showSummary = true
   showTableOfContents = true
   showTaxonomies = false
-  groupByYear = false
+  groupByYear = true
   paginationWidth = 1
 
 [sitemap]
-  excludedKinds = ["taxonomy", "term"]
+  # Include taxonomy pages in sitemap for better SEO
+  excludedKinds = []
+  changefreq = "monthly"
+  priority = 0.5
 
 [taxonomy]
   showTermCount = true
@@ -84,3 +88,7 @@ fingerprintAlgorithm = "sha256"
   # bing = ""
   # pinterest = ""
   # yandex = ""
+
+# Site metadata for SEO
+# Note: Open Graph and Twitter Card are handled by Congo theme automatically
+# based on article front matter and site configuration

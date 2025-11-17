@@ -2,18 +2,37 @@
 # Refer to the theme docs for more details about each of these parameters.
 # https://jpanther.github.io/congo/docs/getting-started/
 
-# baseURL = "https://your_domain.com/"
+baseURL = "https://ygwa.github.io/"
 defaultContentLanguage = "en"
 
+# Enable CJK language support for better Chinese/Japanese/Korean rendering
 hasCJKLanguage = true
 
+# SEO and site settings
 enableRobotsTXT = true
 summaryLength = 200
+title = "蒋大培 - 全栈开发 | 咨询顾问"
+description = "全栈开发、咨询顾问 - 分享全栈开发实践和技术咨询经验"
 
+# Output formats
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
+# Pagination settings
 [pagination]
   pagerSize = 10
 
+# Theme configuration
 theme = "congo"
+
+# Taxonomies configuration
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+# Markup configuration
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+      hardWraps = false
