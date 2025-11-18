@@ -30,6 +30,9 @@ theme = "congo"
   tag = "tags"
   category = "categories"
 
+# Ignore files - exclude README.md from being processed by Hugo
+ignoreFiles = ["README\\.md"]
+
 # Markup configuration
 [markup]
   [markup.goldmark]
