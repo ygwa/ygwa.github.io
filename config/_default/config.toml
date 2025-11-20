@@ -26,7 +26,7 @@ ignoreFiles = ["^README\\.md$"]
   pagerSize = 10
 
 # Theme configuration
-theme = "congo"
+# theme = "congo"
 
 # Taxonomies configuration
 [taxonomies]
