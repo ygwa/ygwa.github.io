@@ -28,13 +28,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive
           fetch-depth: 0
-
-      - name: Setup Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.23.0'
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
@@ -42,36 +36,15 @@ jobs:
           hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
 
-      - name: Hugo Modules Cache
-        uses: actions/cache@v4
-        with:
-          path: /tmp/hugo_cache
-          key: ${{ runner.os }}-hugo-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-hugo-
-
-      - name: Install Dart Sass
-        run: sudo snap install dart-sass
-
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-
-      - name: Setup Hugo Modules
-        env:
-          HUGO_CACHEDIR: /tmp/hugo_cache
-        run: |
-          go mod download
-          go mod verify
-          hugo mod verify
 
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
-          HUGO_CACHEDIR: /tmp/hugo_cache
         run: |
-          hugo config
           hugo \
             --gc \
             --minify \
