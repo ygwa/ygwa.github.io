@@ -25,7 +25,7 @@ ignoreFiles = ["^README\\.md$"]
 [pagination]
   pagerSize = 10
 
-# Theme configuration
+# Theme configuration (using Hugo Modules, not theme directory)
 # theme = "congo"
 
 # Taxonomies configuration
