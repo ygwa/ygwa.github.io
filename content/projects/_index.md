@@ -1,6 +1,6 @@
 ---
-title: "项目"
-description: "我开发的产品和工具"
+title: "精选项目"
+description: "我开发的产品、开源工具和技术实践"
 date: 2024-12-03T15:49:51+08:00
 
 cascade:

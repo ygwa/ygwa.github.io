@@ -6,17 +6,17 @@ weight = 1
 title = "蒋大培的博客"
 
 [params]
-  dateFormat = "2 January 2006"
-  description = "全栈开发、咨询顾问 - 分享全栈开发实践和技术咨询经验"
+  dateFormat = "2006-01-02"
+  description = "专注全栈开发技术与工程实践分享"
   
   # Site keywords for SEO
-  keywords = ["全栈开发", "咨询顾问", "技术咨询", "前端开发", "后端开发", "蒋大培"]
+  keywords = ["全栈开发", "软件工程", "系统架构", "Web开发", "蒋大培", "技术博客"]
 
 [params.author]
   name = "蒋大培"
-  image = "img/author.jpg"
-  headline = "全栈开发 | 咨询顾问"
-  bio = "全栈开发者，专注于前后端开发和系统设计，同时提供技术咨询服务"
+  image = "img/author.png"
+  headline = "全栈开发工程师"
+  bio = "热爱技术，专注于构建高质量的 Web 应用与系统架构"
   links = [
     { github = "https://github.com/ygwa" },
   ]
