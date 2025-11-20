@@ -11,8 +11,11 @@ hasCJKLanguage = true
 # SEO and site settings
 enableRobotsTXT = true
 summaryLength = 200
-title = "蒋大培 - 全栈开发 | 咨询顾问"
-description = "全栈开发、咨询顾问 - 分享全栈开发实践和技术咨询经验"
+title = "蒋大培的博客"
+description = "专注全栈开发技术与工程实践分享"
+
+# Ignore files - exclude README.md from being processed by Hugo
+ignoreFiles = ["^README\\.md$"]
 
 # Output formats
 [outputs]
@@ -29,9 +32,6 @@ theme = "congo"
 [taxonomies]
   tag = "tags"
   category = "categories"
-
-# Ignore files - exclude README.md from being processed by Hugo
-ignoreFiles = ["README\\.md"]
 
 # Markup configuration
 [markup]

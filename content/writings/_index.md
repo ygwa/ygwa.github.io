@@ -1,14 +1,8 @@
 ---
-title: "Writings"
-description: "My thoughts, ideas and experiences with the things I find interesting."
-
-cascade:
-  showEdit: false
-  showSummary: true
-  groupByYear: true
+title: "技术文章"
+description: "记录全栈开发实践、架构设计思考与技术探索"
 ---
 
 {{< lead >}}
-这里记录了我的技术咨询实践和架构设计经验。从系统架构到性能优化，从技术选型到问题诊断，我会分享真实项目中的解决方案和最佳实践，希望能为你的技术决策提供参考。
+这里是我记录技术思考的地方。内容涵盖后端架构、前端开发、DevOps 实践以及我在日常编码中遇到的有趣挑战。与其说是教程，不如说是我的工程日志，希望能给你带来一些启发。
 {{< /lead >}}
-

@@ -1,7 +1,7 @@
 ---
 title: "利用 Docker 分层，构建高效的 Spring Boot 镜像"
 date: 2024-12-03T15:49:51+08:00
-draft: true
+draft: false
 tags:
 - docker
 - spring-boot

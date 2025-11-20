@@ -1,7 +1,7 @@
 ---
 title: "Elasticsearch 架构探索"
 date: 2024-12-03T15:49:51+08:00
-draft: true
+draft: false
 tags:
 - elasticsearch
 - 架构设计

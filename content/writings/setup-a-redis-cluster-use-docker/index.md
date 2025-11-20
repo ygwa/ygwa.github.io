@@ -1,7 +1,7 @@
 ---
 title: "使用 Docker 来配置 Redis 集群"
 date: 2024-12-09T16:30:25+08:00
-draft: true
+draft: false
 tags:
 - redis
 - docker
