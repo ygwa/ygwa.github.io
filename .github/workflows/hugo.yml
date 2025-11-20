@@ -61,7 +61,8 @@ jobs:
         env:
           HUGO_CACHEDIR: /tmp/hugo_cache
         run: |
-          hugo mod download
+          go mod download
+          go mod verify
           hugo mod verify
 
       - name: Build with Hugo
