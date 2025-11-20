@@ -42,6 +42,14 @@ jobs:
           hugo-version: ${{ env.HUGO_VERSION }}
           extended: true
 
+      - name: Hugo Modules Cache
+        uses: actions/cache@v4
+        with:
+          path: /tmp/hugo_cache
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-
+
       - name: Install Dart Sass
         run: sudo snap install dart-sass
 
@@ -50,15 +58,21 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Setup Hugo Modules
+        env:
+          HUGO_CACHEDIR: /tmp/hugo_cache
         run: |
-          hugo mod get
+          hugo mod get -u
           hugo mod tidy
+          hugo mod verify
+          hugo mod graph
 
       - name: Build with Hugo
         env:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
+          HUGO_CACHEDIR: /tmp/hugo_cache
         run: |
+          hugo config
           hugo \
             --gc \
             --minify \
