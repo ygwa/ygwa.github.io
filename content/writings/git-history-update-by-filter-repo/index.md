@@ -1,7 +1,10 @@
 ---
 title: "Git历史信息修正"
 date: 2024-12-10T18:16:58+08:00
-draft: false
+description: "使用 git filter-repo 清理 Git 仓库中的敏感信息，如密钥、密码等，避免信息泄露，详解原理与适用场景。"
+categories:
+- 技术实践
+- 工具使用
 tags:
 - git
 - 项目实践

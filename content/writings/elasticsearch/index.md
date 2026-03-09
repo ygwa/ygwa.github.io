@@ -1,7 +1,9 @@
 ---
 title: "Elasticsearch 架构探索"
 date: 2024-12-03T15:49:51+08:00
-draft: false
+description: "深入探索 Elasticsearch 集群架构，包括三节点高可用设计、分片治理、健康检查与索引生命周期管理。"
+categories:
+- 架构设计
 tags:
 - elasticsearch
 - 架构设计

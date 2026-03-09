@@ -1,7 +1,10 @@
 ---
 title: "SDD 工具实战：Spec Kit、OpenSpec、Kiro 使用指南"
 date: 2026-02-26T19:47:00+08:00
-draft: false
+description: "深入对比三大 SDD 工具：Spec Kit、OpenSpec、Kiro，探讨规范驱动开发如何解决 AI 时代的「Vibe Coding」问题。"
+categories:
+- 工具使用
+- AI开发
 tags:
 - 软件开发
 - AI开发

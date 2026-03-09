@@ -1,7 +1,10 @@
 ---
 title: "利用 Docker 分层，构建高效的 Spring Boot 镜像"
 date: 2024-12-03T15:49:51+08:00
-draft: false
+description: "通过 Docker 分层技术优化 Spring Boot 镜像，解决网络受限环境下的部署效率问题，实战分享 FatJar 优化方案。"
+categories:
+- 技术实践
+- 性能优化
 tags:
 - docker
 - spring-boot
@@ -16,7 +19,9 @@ tags:
 
 为了解决这个问题，我通过优化 Docker Layers 的方式大幅减少了镜像的大小变化，提高了部署效率。下面是完整的实战过程，希望对你有所帮助。
 
-# FatJar 介绍
+<!--more-->
+
+## FatJar 介绍
 默认情况下，Spring Boot 的应用会采用 FatJar 的模式来将我们的 Spring Boot 应用打包成一个可执行的文件。通过如下的 Dockerfile 可以构建出该服务的 Docker 镜像用来启动服务
 ```sh
 FROM openjdk:8-jdk-alpine

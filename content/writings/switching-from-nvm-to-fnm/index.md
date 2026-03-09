@@ -1,7 +1,10 @@
 ---
 title: "从 NVM 迁移到 FNM：解决 Zsh 启动慢问题"
 date: 2026-01-27T10:06:39+08:00
-draft: false
+description: "通过从 NVM 迁移到 FNM 解决 Zsh 终端启动慢的问题，实测性能提升 68%，从 3.1 秒降至 1.0 秒。"
+categories:
+- 技术实践
+- 性能优化
 tags:
 - nodejs
 - 开发工具
@@ -9,6 +12,8 @@ tags:
 ---
 
 最近在使用终端时发现一个恼人的问题：每次打开新的终端窗口，Zsh 都要等待几秒钟才能完全加载完成。经过排查，发现罪魁祸首是 Node Version Manager (NVM) 的初始化脚本。本文记录了从 NVM 迁移到 Fast Node Manager (FNM) 的过程，以及迁移后带来的显著性能提升。
+
+<!--more-->
 
 ## 问题：NVM 拖慢 Zsh 启动速度
 
