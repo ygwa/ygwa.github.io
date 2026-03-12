@@ -11,7 +11,7 @@ tags:
 - 性能优化
 ---
 
-最近在使用终端时发现一个恼人的问题：每次打开新的终端窗口，Zsh 都要等待几秒钟才能完全加载完成。经过排查，发现罪魁祸首是 Node Version Manager (NVM) 的初始化脚本。本文记录了从 NVM 迁移到 Fast Node Manager (FNM) 的过程，以及迁移后带来的显著性能提升。
+最近在使用终端时遇到一个明显卡顿：每次打开新的终端窗口，Zsh 都要等待几秒才能完成加载。排查后发现罪魁祸首是 Node Version Manager (NVM) 的初始化脚本。本文记录从 NVM 迁移到 Fast Node Manager (FNM) 的过程，以及性能提升的实测结果。
 
 <!--more-->
 
@@ -19,7 +19,7 @@ tags:
 
 NVM 是 Node.js 版本管理的常用工具，但它有一个明显的缺点：启动速度慢。每次打开新终端时，`.zshrc` 中的 NVM 初始化代码都需要执行：
 
-```bash path=null start=null
+```bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
@@ -31,12 +31,12 @@ export NVM_DIR="$HOME/.nvm"
 
 通过 `time zsh -i -c exit` 命令测量，使用 NVM 时的终端启动时间：
 
-```bash path=null start=null
+```bash
 # 使用 NVM 时的启动耗时
 zsh -i -c exit  0.56s user 0.52s system 34% cpu 3.142 total
 ```
 
-**结果：启动耗时约 3.1 秒**，其中大部分时间消耗在加载 `nvm.sh` 脚本上。这意味着每次打开终端都要等待超过 3 秒才能开始工作。
+**结果：启动耗时约 3.1 秒**，其中大部分时间消耗在加载 `nvm.sh` 脚本上。这意味着每次打开终端都要额外等待超过 3 秒。
 
 ### NVM 启动慢的原因
 
@@ -62,7 +62,7 @@ Fast Node Manager (FNM) 是一个用 Rust 编写的 Node.js 版本管理器，�
 
 如果还没安装，可以通过 Homebrew 安装：
 
-```bash path=null start=null
+```bash
 brew install fnm
 ```
 
@@ -70,7 +70,7 @@ brew install fnm
 
 移除 NVM 的初始化代码，替换为 FNM 的简洁配置：
 
-```bash path=null start=null
+```bash
 # fnm (Fast Node Manager)
 eval "$(fnm env --use-on-cd)"
 ```
@@ -81,7 +81,7 @@ eval "$(fnm env --use-on-cd)"
 
 删除 NVM 及其安装的所有 Node 版本：
 
-```bash path=null start=null
+```bash
 # 删除 NVM 目录
 rm -rf ~/.nvm
 
@@ -93,7 +93,7 @@ brew uninstall nvm
 
 使用 FNM 安装需要的 Node 版本：
 
-```bash path=null start=null
+```bash
 # 安装最新 LTS 版本
 fnm install --lts
 
@@ -108,7 +108,7 @@ fnm list
 
 ### 版本管理
 
-```bash path=null start=null
+```bash
 # 安装特定版本
 fnm install 20.18.3
 fnm install 18
@@ -128,7 +128,7 @@ fnm list-remote
 
 ### 版本切换
 
-```bash path=null start=null
+```bash
 # 切换到指定版本
 fnm use 20
 
@@ -141,7 +141,7 @@ fnm current
 
 ### 版本卸载
 
-```bash path=null start=null
+```bash
 # 卸载指定版本
 fnm uninstall 18.16.0
 ```
@@ -150,7 +150,7 @@ fnm uninstall 18.16.0
 
 FNM 支持在项目目录中使用 `.nvmrc` 或 `.node-version` 文件来指定 Node 版本：
 
-```bash path=null start=null
+```bash
 # 在项目根目录创建 .node-version 文件
 echo "20.18.3" > .node-version
 
@@ -162,7 +162,7 @@ echo "20.18.3" > .nvmrc
 
 ### 环境信息
 
-```bash path=null start=null
+```bash
 # 查看 FNM 环境信息
 fnm env
 
@@ -176,12 +176,12 @@ fnm --version
 
 从 NVM 迁移到 FNM 后，终端启动速度有了显著提升。再次使用相同的命令测量：
 
-```bash path=null start=null
+```bash
 # 使用 FNM 后的启动耗时
 zsh -i -c exit  0.25s user 0.34s system 59% cpu 0.988 total
 ```
 
-**结果：启动耗时约 1.0 秒**，相比 NVM 的 3.1 秒，性能提升了 **68%**！
+**结果：启动耗时约 1.0 秒**，相比 NVM 的 3.1 秒，性能提升了 **68%**。
 
 #### 性能对比
 
@@ -219,7 +219,12 @@ FNM 作为 NVM 的现代替代方案，在保持功能完整性的同时，大�
 - ✅ 命令响应几乎瞬时完成
 - ✅ 向后兼容 `.nvmrc` 配置文件
 
-工具的选择应该服务于效率，而不是成为负担。FNM 正是这样一个让开发体验更顺畅的工具。
+工具的选择应该服务于效率，而不是成为负担。FNM 在性能与易用性上对大多数开发者都更友好。
+
+## 适用边界
+
+- 如果团队必须统一 NVM，个人迁移需要评估协作成本。
+- 某些脚本强依赖 `nvm` 命令时，需要做兼容替换。
 
 ## 参考资源
 
