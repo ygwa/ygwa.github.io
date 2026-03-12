@@ -88,3 +88,12 @@ fingerprintAlgorithm = "sha256"
 # Site metadata for SEO
 # Note: Open Graph and Twitter Card are handled by Congo theme automatically
 # based on article front matter and site configuration
+
+[author]
+  name = "蒋大培"
+  image = "img/author.jpg"
+  headline = "全栈开发工程师"
+  bio = "热爱技术，专注于构建高质量的 Web 应用与系统架构"
+  links = [
+    { github = "https://github.com/ygwa" },
+  ]
